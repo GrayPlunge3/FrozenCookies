@@ -733,8 +733,8 @@ function autoFTHOFComboAction() {
             ((FrozenCookies.towerLimit && M.magic >= M.magicM) ||
                 (!FrozenCookies.towerLimit && M.magic >= M.magicM - 1)) &&
             !Game.hasBuff("Click frenzy") &&
-            !nextSpellName(0) == "Click Frenzy" &&
-            !nextSpellName(1) == "Click Frenzy")
+            nextSpellName(0) != "Click Frenzy" &&
+            nextSpellName(1) != "Click Frenzy")
     ) {
         if (autoFTHOFComboAction.autobuyyes == 1) {
             FrozenCookies.autoBuy = 1;
@@ -793,8 +793,8 @@ function autoFTHOFComboAction() {
             return;
         case 1:
             if (
-                !nextSpellName(0) == "Click Frenzy" &&
-                !nextSpellName(1) == "Click Frenzy"
+                nextSpellName(0) != "Click Frenzy" &&
+                nextSpellName(1) != "Click Frenzy"
             ) {
                 autoFTHOFComboAction.state = 0;
                 return;
@@ -950,8 +950,8 @@ function autoFTHOFComboAction() {
             return;
         case 2:
             if (
-                !nextSpellName(0) == "Building Special" &&
-                !nextSpellName(1) == "Building Special"
+                nextSpellName(0) != "Building Special" &&
+                nextSpellName(1) != "Building Special"
             ) {
                 autoFTHOFComboAction.state = 0;
                 return;
@@ -1120,6 +1120,7 @@ function autoFTHOFComboAction() {
             if (Game.buyMode == -1) Game.buyMode = 1;
             Game.Objects["Wizard tower"].sell(autoFTHOFComboAction.count);
             M.computeMagicM(); //Recalc max after selling
+            logEvent("autoFTHOFCombo", "Pre-cast: next=" + nextSpellName(0) + ", mana=" + Math.floor(M.magic) + "/" + M.magicM);
             M.castSpell(M.spellsById[1]);
             logEvent("autoFTHOFCombo", "Double cast Force the Hand of Fate");
             if (
