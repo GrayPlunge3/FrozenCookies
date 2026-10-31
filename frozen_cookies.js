@@ -20,7 +20,7 @@ var scriptElement =
 var baseUrl =
     scriptElement !== null
         ? scriptElement.getAttribute("src").replace(/\/frozen_cookies\.js$/, "")
-        : "https://github.grayplunge3.io/FrozenCookies/";
+        : "https://grayplunge3.github.io/FrozenCookies/";
 var FrozenCookies = {
     baseUrl: baseUrl,
     branch: "erb-",
