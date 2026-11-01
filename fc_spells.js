@@ -1120,9 +1120,7 @@ function autoFTHOFComboAction() {
             if (Game.buyMode == -1) Game.buyMode = 1;
             Game.Objects["Wizard tower"].sell(autoFTHOFComboAction.count);
             M.computeMagicM(); //Recalc max after selling
-            Game.Notify("FTHOF combo", "next=" + nextSpellName(0) + ", mana=" + Math.floor(M.magic) + "/" + M.magicM, [16, 5]);
             M.castSpell(M.spellsById[1]);
-            Game.Notify("After 2nd cast", "casts=" + M.spellsCastTotal + ", cookies=[" + Game.shimmers.map(function (s) { return (s.force || "?") + (s.wrath ? "(wrath)" : ""); }).join(", ") + "]", [16, 5]);
             logEvent("autoFTHOFCombo", "Double cast Force the Hand of Fate");
             if (
                 FrozenCookies.towerLimit &&
