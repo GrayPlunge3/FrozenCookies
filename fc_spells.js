@@ -1111,7 +1111,6 @@ function autoFTHOFComboAction() {
             return;
         case 3:
             // Turn off autoBuy and make sure we're not in sell mode
-            Game.Notify("After 1st cast", "casts=" + M.spellsCastTotal + ", cookies=[" + Game.shimmers.map(function (s) { return (s.force || "?") + (s.wrath ? "(wrath)" : ""); }).join(", ") + "]", [16, 5]);
             if (FrozenCookies.autoBuy == 1) {
                 autoFTHOFComboAction.autobuyyes = 1;
                 FrozenCookies.autoBuy = 0;
