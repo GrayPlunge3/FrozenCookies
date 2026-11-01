@@ -1120,7 +1120,7 @@ function autoFTHOFComboAction() {
             if (Game.buyMode == -1) Game.buyMode = 1;
             Game.Objects["Wizard tower"].sell(autoFTHOFComboAction.count);
             M.computeMagicM(); //Recalc max after selling
-            logEvent("autoFTHOFCombo", "Pre-cast: next=" + nextSpellName(0) + ", mana=" + Math.floor(M.magic) + "/" + M.magicM);
+            Game.Notify("FTHOF combo", "next=" + nextSpellName(0) + ", mana=" + Math.floor(M.magic) + "/" + M.magicM, [16, 5]);
             M.castSpell(M.spellsById[1]);
             logEvent("autoFTHOFCombo", "Double cast Force the Hand of Fate");
             if (
