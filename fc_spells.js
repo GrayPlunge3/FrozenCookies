@@ -374,7 +374,7 @@ function autoCast() {
                 }
                 return;
 
-            case 3:
+            :
                 if (
                     M.magicM <
                     Math.floor(
@@ -849,7 +849,7 @@ function autoFTHOFComboAction() {
                             autoFTHOFComboAction.state = 3;
                         }
                         return;
-                    case 3:
+                    :
                         if (M.magic >= 81) {
                             autoFTHOFComboAction.count =
                                 Game.Objects["Wizard tower"].amount - 8;
@@ -1111,6 +1111,7 @@ function autoFTHOFComboAction() {
             return;
         case 3:
             // Turn off autoBuy and make sure we're not in sell mode
+            Game.Notify("After 1st cast", "casts=" + M.spellsCastTotal + ", cookies=[" + Game.shimmers.map(function (s) { return (s.force || "?") + (s.wrath ? "(wrath)" : ""); }).join(", ") + "]", [16, 5]);
             if (FrozenCookies.autoBuy == 1) {
                 autoFTHOFComboAction.autobuyyes = 1;
                 FrozenCookies.autoBuy = 0;
@@ -1122,6 +1123,7 @@ function autoFTHOFComboAction() {
             M.computeMagicM(); //Recalc max after selling
             Game.Notify("FTHOF combo", "next=" + nextSpellName(0) + ", mana=" + Math.floor(M.magic) + "/" + M.magicM, [16, 5]);
             M.castSpell(M.spellsById[1]);
+            Game.Notify("After 2nd cast", "casts=" + M.spellsCastTotal + ", cookies=[" + Game.shimmers.map(function (s) { return (s.force || "?") + (s.wrath ? "(wrath)" : ""); }).join(", ") + "]", [16, 5]);
             logEvent("autoFTHOFCombo", "Double cast Force the Hand of Fate");
             if (
                 FrozenCookies.towerLimit &&
