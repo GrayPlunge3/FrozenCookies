@@ -374,7 +374,7 @@ function autoCast() {
                 }
                 return;
 
-            :
+            case 3:
                 if (
                     M.magicM <
                     Math.floor(
@@ -733,8 +733,8 @@ function autoFTHOFComboAction() {
             ((FrozenCookies.towerLimit && M.magic >= M.magicM) ||
                 (!FrozenCookies.towerLimit && M.magic >= M.magicM - 1)) &&
             !Game.hasBuff("Click frenzy") &&
-            nextSpellName(0) != "Click Frenzy" &&
-            nextSpellName(1) != "Click Frenzy")
+            !nextSpellName(0) == "Click Frenzy" &&
+            !nextSpellName(1) == "Click Frenzy")
     ) {
         if (autoFTHOFComboAction.autobuyyes == 1) {
             FrozenCookies.autoBuy = 1;
@@ -793,8 +793,8 @@ function autoFTHOFComboAction() {
             return;
         case 1:
             if (
-                nextSpellName(0) != "Click Frenzy" &&
-                nextSpellName(1) != "Click Frenzy"
+                !nextSpellName(0) == "Click Frenzy" &&
+                !nextSpellName(1) == "Click Frenzy"
             ) {
                 autoFTHOFComboAction.state = 0;
                 return;
@@ -849,7 +849,7 @@ function autoFTHOFComboAction() {
                             autoFTHOFComboAction.state = 3;
                         }
                         return;
-                    :
+                    case 3:
                         if (M.magic >= 81) {
                             autoFTHOFComboAction.count =
                                 Game.Objects["Wizard tower"].amount - 8;
@@ -950,8 +950,8 @@ function autoFTHOFComboAction() {
             return;
         case 2:
             if (
-                nextSpellName(0) != "Building Special" &&
-                nextSpellName(1) != "Building Special"
+                !nextSpellName(0) == "Building Special" &&
+                !nextSpellName(1) == "Building Special"
             ) {
                 autoFTHOFComboAction.state = 0;
                 return;
